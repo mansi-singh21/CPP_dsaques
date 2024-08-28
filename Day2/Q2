@@ -1,0 +1,20 @@
+#include <iostream>
+using namespace std;
+int main(){
+    int sc;
+    cout<<"Enter the score:";
+    cin>>sc;
+    if(sc>89 && sc<101){
+        cout<<"Grade: A";
+    }
+    else if(sc>79 && sc<90){
+        cout<<"Grade: B";
+    }
+    else if(sc>69 && sc<80){
+        cout<<"Grade: C";
+    }else if(sc>59 && sc<70){
+        cout<<"Grade: D";
+    }else{
+        cout<<"Grade: F";
+    }
+}
