@@ -1,0 +1,16 @@
+#include <iostream>
+using namespace std;
+int main(){
+    int n;
+    cout<<"Enter first integer:";
+    cin>>n;
+    int m;
+    cout<<"Enter second integer:";
+    cin>>m;
+    cout<<"Addition: "<<m+n<<endl;
+    cout<<"Subtraction: "<<n-m<<endl;
+    cout<<"Multiplication: "<<n*m<<endl;
+    cout<<"Division: "<<static_cast<float>(n)/m<<endl;
+    cout<<"Modulus: "<<n%m<<endl;
+   
+}
