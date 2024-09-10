@@ -1,0 +1,13 @@
+#include <iostream>
+#include<string.h>
+using namespace std;
+
+int main(){
+    int a;
+    cin>>a;
+    int* ptr1=&a;
+    int** ptr2=&ptr1;
+    cout<<"Value using variable: "<<a<<endl;
+    cout<<"Value using pointer1: "<<*ptr1<<endl;
+    cout<<"Value using pointer2: "<<**ptr2<<endl;
+}
