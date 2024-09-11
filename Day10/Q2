@@ -1,0 +1,28 @@
+#include <iostream>
+#include <string>
+#include <algorithm> // for transform
+#include <cctype>
+
+using namespace std;
+bool ispalindrome(string str){
+    int st=0;
+    int end=str.size()-1;
+    while(st<=end){
+        if(str[st]==str[end]){
+            st++;
+            end--;
+        }
+        else return false;
+    }
+    return true;
+}
+int main() {
+    string s="";
+    cout<<"Enter string:";
+    getline(cin,s);
+    for (int i = 0; i < s.size(); i++) {
+        s[i] = tolower(s[i]); // Convert each character to lowercase
+    }
+    cout<<"Is the string palindrome? "<<(ispalindrome(s)?"True":"False");
+    return 0;
+}
