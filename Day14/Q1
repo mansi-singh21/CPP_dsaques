@@ -1,0 +1,33 @@
+#include <iostream>
+#include<string>
+using namespace std;
+class car{
+    string brand="";
+    string model="";
+    string engine="";
+    int noofseats;
+    public:
+    car(string b, string m, string e, int n){
+        brand=b;
+        model=m;
+        engine=e;
+        noofseats=n;
+    }
+    void display(){
+        cout<<"Brand name: "<<brand<<endl;
+        cout<<"Model: "<<model<<endl;
+        cout<<"Engine: "<<engine<<endl;
+        cout<<"No of seats: "<<noofseats<<endl;
+    }
+};
+int main(){
+    string br,ml,en;
+    int no;
+    cout<<"Enter brand, model , engine, no of seats\n";
+    cin>>br;
+    cin>>ml;
+    cin>>en;
+    cin>>no;
+    car car1(br,ml,en,no);
+    car1.display();
+}
