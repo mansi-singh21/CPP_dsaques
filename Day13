@@ -1,0 +1,13 @@
+#include <iostream>
+
+int main() {
+
+    int* ptr = new int;  
+    *ptr = 42;
+
+    std::cout << "Value of dynamically allocated integer: " << *ptr << std::endl;
+
+    delete ptr;
+
+    return 0;
+}
