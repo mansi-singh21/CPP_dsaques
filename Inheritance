@@ -1,0 +1,90 @@
+#include <iostream>
+#include<string>
+using namespace std;
+class Animal{
+    public:
+    string species;
+    int age;
+    float weight;
+    Animal(string s, int a, float w){
+        species=s;
+        age=a;
+        weight=w;
+    }
+    void display(){
+        cout<<"Species: "<<species<<endl;
+        cout<<"age: "<<age<<endl;
+        cout<<"weight: "<<weight<<endl;
+    }
+};
+class Mammal: virtual public Animal{
+    public:
+    string furcolor;
+    Mammal(string n,int a,float w,string fc):Animal(n,a,w){
+        furcolor=fc;
+    }
+    void sound(string s){
+        cout<<species<<" "<<s<<endl;
+    }
+};
+class Bird:virtual  public Animal{
+    public:
+    float wingspan;
+    Bird(string s,int a,float w,float ws):Animal(s,a,w){
+        wingspan=ws;
+    }
+    void fly(){
+        cout<<species<<" is flying with a wingspan of "<<wingspan<<" meters"<<endl;
+    }
+};
+class Reptile:virtual  public Animal{
+    public:
+    bool isvenomous;
+    Reptile(string s,int a,float w,bool v):Animal(s,a,w){
+        isvenomous=v;
+    }
+    void crawl(){
+        cout<<species<<" is crawling."<<endl;
+    }
+};
+class Lion: public Mammal{
+    public:
+    int pridesize;
+    Lion(string s,int a,float w, string fc,int pr):Animal(s,a,w), Mammal(s,a,w,fc){
+        pridesize=pr;
+    }
+    void hunt(){
+        cout<<species<<" hunts with its pride of "<<pridesize<<" members."<<endl;
+    }
+};
+class Flyingreptile: public Bird, public Reptile{
+    public:
+    Flyingreptile(string s, int a,float w, float ws, bool v): Animal(s,a,w),Bird(s,a,w,ws),Reptile(s,a,w,v){
+    }
+    void glide(){
+        cout<<"Flying "<<species<<" is gliding with a wingspan of "<<wingspan<<" meters."<<endl;
+    }
+};
+int main(){
+    Lion lion("Lion",5,190,"golden",6);
+    lion.display();
+    lion.hunt();
+    lion.sound("roars");
+    cout<<endl;
+    
+    Bird parrot("Parrot",2,1.5,0.8);
+    parrot.display();
+    parrot.fly();
+    cout<<endl;
+     
+    Reptile croc("Crocodile",12,400,false);
+    croc.display();
+    croc.crawl();
+    cout<<endl;
+     
+    Flyingreptile rep("Pterodactyl",3,50,3,true);
+    rep.display();
+    rep.fly();
+    rep.crawl();
+    rep.glide();
+}
