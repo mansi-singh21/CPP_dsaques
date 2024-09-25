@@ -1,0 +1,31 @@
+#include <iostream>
+#include <fstream>
+#include <string>
+
+using namespace std;
+
+int main() {
+    string name, course;
+    int age;
+
+    cout << "Enter your name: ";
+    cin.ignore();
+    getline(cin, name);
+    cout << "Enter your age: ";
+    cin >> age;
+
+    ofstream outFile("details.txt");
+    outFile << "Name: " << name << endl;
+    outFile << "Age: " << age << endl;
+    outFile.close();
+
+    ifstream inFile("details.txt");
+    string line;
+    cout << "Details from file:" << endl;
+    while (getline(inFile, line)) {
+        cout << line << endl;
+    }
+    inFile.close();
+
+    return 0;
+}
