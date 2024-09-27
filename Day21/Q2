@@ -1,0 +1,53 @@
+#include <iostream>
+using namespace std;
+
+struct Node {
+    int data;
+    Node* next;
+    Node(int val) : data(val), next(nullptr) {}
+};
+
+bool detectCycle(Node* head) {
+    if (!head || !head->next) return false;
+    Node* slow = head;
+    Node* fast = head;
+    while (fast && fast->next) {
+        slow = slow->next;
+        fast = fast->next->next;
+        if (slow == fast) return true;
+    }
+    return false;
+}
+
+int main() {
+    int n, pos;
+    cin >> n;
+    Node* head = nullptr;
+    Node* tail = nullptr;
+    Node* cycleNode = nullptr;
+
+    for (int i = 0; i < n; i++) {
+        int val;
+        cin >> val;
+        Node* newNode = new Node(val);
+        if (!head) {
+            head = newNode;
+        } else {
+            tail->next = newNode;
+        }
+        tail = newNode;
+
+        if (i == pos) cycleNode = newNode;
+    }
+
+    cin >> pos;
+    if (pos != -1) tail->next = cycleNode;
+
+    if (detectCycle(head)) {
+        cout << "true" << endl;
+    } else {
+        cout << "false" << endl;
+    }
+
+    return 0;
+}
